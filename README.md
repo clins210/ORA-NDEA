@@ -59,3 +59,14 @@ The project concludes by summarizing key findings and insights gained from the a
 [Evaluating the performance of supply chain risk mitigation strategies using network data envelopment analysis](https://www.sciencedirect.com/science/article/pii/S0377221722002235) \
 [Incorporating causal modeling into data envelopment analysis for performance evaluation](https://link.springer.com/article/10.1007/s10479-023-05486-0) \
 [Innovation performance evaluation for high-tech companies using a dynamic network data envelopment analysis approach](https://www.sciencedirect.com/science/article/abs/pii/S0377221720308870)
+
+
+
+limitation/future work ?
+-> input dimension
+how to improve?
+
+insight???
+論文與實務之間的關聯（思考問題 > 思考解法）
+high level
+
