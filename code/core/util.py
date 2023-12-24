@@ -5,7 +5,7 @@ def plot_fig(input_output_type: str,
              res_NDEA_CRS: list,
              res_NDEA_VRS: list,
              res_DEA_CRS: list,
-             res_DEA_VRS: str):
+             res_DEA_VRS: list):
 
     plt.plot(res_NDEA_CRS, label="NDEA_CRS")
     plt.plot(res_NDEA_VRS, label="NDEA_VRS")
