@@ -64,34 +64,24 @@ def NDEA(single_data,
                 m.addConstr(sum(w_j[j, k] for j in range(N)) == 1, "C10")
 
             # k=0
-            m.addConstr((X[r][0] == sum(X[j][0] * λ[j, 0] + s_neg[r, 0]
-                        for j in range(N))), "C1")  # input: X1
-            m.addConstr((Y[r][0] == sum(Y[j][0] * λ[j, 0] - s_pos[r, 0]
-                        for j in range(N))), "C2")  # output: Y1(z2)
+            m.addConstr((X[r][0] == sum(X[j][0] * λ[j, 0] + s_neg[r, 0] for j in range(N))), "C1")  # input: X1
+            m.addConstr((Y[r][0] == sum(Y[j][0] * λ[j, 0] - s_pos[r, 0] for j in range(N))), "C2")  # output: Y1(z2)
 
             # k=1
-            m.addConstr((X[r][1] == sum(X[j][1] * λ[j, 1] + s_neg[r, 1]
-                        for j in range(N))), "C3")  # input: X2
-            m.addConstr((Y[r][1] == sum(Y[j][0] * λ[j, 1] + s_neg[r, 3]
-                        for j in range(N))), "C4")  # input: Y1(z1)
-            m.addConstr((Y[r][1] == sum(Y[j][1] * λ[j, 1] - s_pos[r, 1]
-                        for j in range(N))), "C5")  # output: Y2(z2)
+            m.addConstr((X[r][1] == sum(X[j][1] * λ[j, 1] + s_neg[r, 1] for j in range(N))), "C3")  # input: X2
+            m.addConstr((Y[r][1] == sum(Y[j][0] * λ[j, 1] + s_neg[r, 3] for j in range(N))), "C4")  # input: Y1(z1)
+            m.addConstr((Y[r][1] == sum(Y[j][1] * λ[j, 1] - s_pos[r, 1] for j in range(N))), "C5")  # output: Y2(z2)
 
             # k=2
-            m.addConstr((X[r][2] == sum(X[j][2] * λ[j, 2] + s_neg[r, 2]
-                        for j in range(N))), "C6")  # input: X3
-            m.addConstr((Y[r][2] == sum(Y[j][2] * λ[j, 2] + s_neg[r, 4]
-                        for j in range(N))), "C7")  # input: Y2(z2)
-            m.addConstr((Y[r][2] == sum(Y[j][2] * λ[j, 2] - s_pos[r, 2]
-                        for j in range(N))), "C8")  # output: Y3
+            m.addConstr((X[r][2] == sum(X[j][2] * λ[j, 2] + s_neg[r, 2] for j in range(N))), "C6")  # input: X3
+            m.addConstr((Y[r][2] == sum(Y[j][2] * λ[j, 2] + s_neg[r, 4] for j in range(N))), "C7")  # input: Y2(z2)
+            m.addConstr((Y[r][2] == sum(Y[j][2] * λ[j, 2] - s_pos[r, 2] for j in range(N))), "C8")  # output: Y3
 
             # (k, h) pairs
             # z[j ,0, 1] = Y[j, 0]
-            m.addConstr(((sum(Y[j][0] * λ[j, 0] for j in range(N)) -
-                        sum(Y[j][0] * λ[j, 1] for j in range(N))) <= 0.1), "C5-1")
+            m.addConstr(((sum(Y[j][0] * λ[j, 0] for j in range(N)) - sum(Y[j][0] * λ[j, 1] for j in range(N))) <= 0.1), "C5-1")
             # z[j ,1, 2] = Y[j, 1]
-            m.addConstr((sum(Y[j][1] * λ[j, 1] for j in range(N)) -
-                        sum(Y[j][1] * λ[j, 2] for j in range(N)) <= 0.1), "C5-2")
+            m.addConstr((sum(Y[j][1] * λ[j, 1] for j in range(N)) - sum(Y[j][1] * λ[j, 2] for j in range(N)) <= 0.1), "C5-2")
 
             m.optimize()
 
@@ -146,27 +136,21 @@ def DEA(single_data: list,
             # Add decision variables
             for r in DMU:
                 λ[r] = m.addVar(vtype=GRB.CONTINUOUS, name="λ_%s" % r)
-                theta[h] = m.addVar(vtype=GRB.CONTINUOUS,
-                                    lb=-1000, name="theta_%s" % h)
-                Si[h] = m.addVars(
-                    I, lb=0, vtype=GRB.CONTINUOUS, name="Si_%s" % h)
-                Sr[h] = m.addVars(
-                    O, lb=0, vtype=GRB.CONTINUOUS, name="Sr_%s" % h)
+                theta[h] = m.addVar(vtype=GRB.CONTINUOUS, lb=-1000, name="theta_%s" % h)
+                Si[h] = m.addVars(I, lb=0, vtype=GRB.CONTINUOUS, name="Si_%s" % h)
+                Sr[h] = m.addVars(O, lb=0, vtype=GRB.CONTINUOUS, name="Sr_%s" % h)
 
             m.update()
             # Add objective function
-            m.setObjective(
-                theta[h] - epsilon * (sum(Si[h][i] + Si[h][i] for i in range(I))), GRB.MINIMIZE)
+            m.setObjective(theta[h] - epsilon * (sum(Si[h][i] + Si[h][i] for i in range(I))), GRB.MINIMIZE)
 
             # Add constraints
             # for each input
             for i in range(I):
-                m.addConstr(quicksum(λ[j]*X[j][i]
-                            for j in DMU) + Si[h][i] == theta[h]*X[h][i])
+                m.addConstr(quicksum(λ[j]*X[j][i] for j in DMU) + Si[h][i] == theta[h]*X[h][i])
             # for each output
             for r in range(O):
-                m.addConstr(quicksum(λ[j]*Y[j][r]
-                            for j in DMU) - Sr[h][r] >= Y[h][r])
+                m.addConstr(quicksum(λ[j]*Y[j][r] for j in DMU) - Sr[h][r] >= Y[h][r])
 
             # turn on is VRS
             if model_type == "VRS":
