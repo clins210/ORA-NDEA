@@ -22,9 +22,9 @@ def output_generator():
     return float(sale)
 
 
-def generate_dataset(N: int,
-                     type,
-                     input_idx):
+def generate(N: int,
+             type,
+             input_idx):
     # Data generator
 
     K = 3
@@ -53,13 +53,3 @@ def generate_dataset(N: int,
                 Y[j][k] = output_generator()
 
     return DMU, X, Y
-
-
-def dataset_to_txt(dataset,
-                   file_path=""):
-    DMU, X, Y = dataset
-
-
-def text_to_dataset(file_path):
-
-    DMU, X, Y = dataset
