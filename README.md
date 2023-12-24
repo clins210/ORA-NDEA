@@ -44,7 +44,7 @@ For a theoretical and mathematical introduction to the methodology, refer to the
 ## Data Collection and Analysis Result
 
 ### Data Collection
-The dataset used for this project is sourced from [Specify Data Source]. If real data is unavailable, a data generating process (DGP) or simulation is applied to justify the dataset's relevance to the problem.
+The dataset used for this project is sourced generated randomly base on their survey. If real data is unavailable, a data generating process (DGP) or simulation is applied to justify the dataset's relevance to the problem.
 
 ### Analysis
 Detailed analysis using the stochastic programming method outlined in Section 3 is presented in the [Analysis](./analysis.md) file. Tables and figures illustrate the numerical results obtained.
@@ -69,5 +69,22 @@ how to improve?
 insight???
 論文與實務之間的關聯（思考問題 > 思考解法）
 high level -->
+
+### File structure
+```
+├── ORA-DEA
+│   ├── code
+│   │   ├── core
+│   │   │   ├── data.py
+│   │   │   ├── model.py
+│   │   │   └── util.py
+│   │   ├── dataset
+│   │   │   ├── DD
+│   │   │   ├── DS
+│   │   │   └── SD
+│   │   ├── main.ipynb
+│   │   └── requriment.txt
+└── README.md
+```
 
 
