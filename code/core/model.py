@@ -170,6 +170,6 @@ def DEA(single_data: list,
         except GurobiError:
             continue
             # print('GurobiError reported')
-    print(list(E.values()))
+    # print(list(E.values()))
     # return E
     return list(E.values()), feasible
