@@ -11,7 +11,7 @@ Efficiency evaluation in supply chain management is crucial for assessing the co
 ### Background Description
 In the realm of supply chain management, the evaluation of efficiency strategies is a critical pursuit to enhance overall performance.  
 However, the complexity of interconnected supply chain entities and multi-dimensional aspects challenges traditional efficiency assessment methods to capture intricate relationships and dependencies.  
-Therefore, in this paper, we propose a method for evaluating company efficiency strategies that simultaneously includes performance outcomes, and interdependencies among the different stages of the supply chain.  
+Therefore, in this paper, we propose a method for evaluating company efficiency strategies that simultaneously incorporates performance outcomes and considers interdependencies among the different stages of the supply chain.
 
 ### Research Purpose
 Evaluating supply chain efficiency strategies for each company, and consider each of the entities and their interdependencies.
@@ -47,7 +47,7 @@ In addition, NDEA defines supply chains as interconnected activities, akin to in
 
 ### Model Formulation
 
-### Desicion Variable: $\lambda$
+### Decision Variable: $\lambda$
 
 Assume there are $k$ stages and $n$ companies (DMUs).  
 Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Suppliers, Manufacturing, Customers.  
@@ -76,12 +76,12 @@ $(2, 3)$: the linkage between manufacturing and customers.
 
 ### NDEA Model $\lambda$
 Below shows the mathematics expressions of NDEA model,  
-where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
+where $\lambda$ is the only decision variable, representing the weight assigned to each input and output vector.  
 $s_k^-$ and $s_k^+$ represent the input and output slack variables, respectively.
 
 Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
-Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
-Equation (3) shows the output vectors multiply decision variables lambda and add slack variables.  
+Equation (2) shows the input vectors multiply decision variables $\lambda$ and add slack variables.  
+Equation (3) shows the output vectors multiply decision variables $\lambda$ and add slack variables.  
 Equation (4) shows the relative weight, $w$ for each stage. Here, we assume each stage has equal weight, $w = \frac{1}{3}$.  
 Equation (5) shows the Linkages Assumptions, there are 2 $(k, h)$ pairs: (1,2) & (2,3).  
 Equation (6) shows the decision variable: $\lambda, s_k^+, s_k^-$, weighted value.  
