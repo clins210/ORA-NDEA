@@ -14,7 +14,7 @@ def plot_fig(input_output_type: str,
     plt.xlabel('DMU')
 
     plt.ylabel('efficiency')
-    plt.xticks([0, 1, 2, 3, 4])
+    plt.xticks(list(range(len(res_NDEA_CRS))))
     plt.legend()
     plt.title(f"Type of {input_output_type}")
     plt.show()
