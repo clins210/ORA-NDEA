@@ -30,7 +30,7 @@ Evaluating the Performance of Company Efficiency Using NDEA
 Each company will receive an efficiency performance score ranging from 0 to 1.
 An efficiency score of 1 indicates that the company is highly efficient, while a score less than 1 represents relative inefficiency.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p7.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p7.png?raw=true)
 
 Our model is from the perspective of the manufacturers, who must manage efficiency internally and externally,  both upstream and downstream.
 
@@ -47,46 +47,46 @@ In addition, NDEA defines supply chains as interconnected activities, akin to in
 
 ### Model Formulation
 
-### Desicion Variable [lambda]
+### Desicion Variable [$\lambda$]
 
-Assume there are k  stages and n  companies (DMUs).
-Given a k = 3, n = 1 scenario, consider a company r , there are 3 stages: Suppliers, Manufacturing, Customers.
+Assume there are $k$ stages and $n$ companies (DMUs).
+Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Suppliers, Manufacturing, Customers.
 We need to determine the **weight** assigned to each input and output vector (represent as lambda).
-With the input and output parameter X, Y, Z.
+With the input and output parameter $X, Y, Z$.
 
-X1 is the input vector of the suppliers, while X2 and X3 are the input vectors for the manufacturers and customers. 
+$X1$ is the input vector of the suppliers, while $X2$ and $X$3 are the input vectors for the manufacturers and customers. 
 
-Z1 and Z2 are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by Y1. 
+$Z1$ and $Z2$ are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by $Y1$. 
 
-Our model is from the perspective of the **manufacturers**, who must manage risk internally and externally, both upstream and downstream. There- fore, we apply the centralized control model.
+Our model is from the perspective of the **manufacturers**, who must manage risk internally and externally, both upstream and downstream. Therefore, we apply the centralized control model.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p10.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p10.png?raw=true)
 
 
 ### Linkage Assumption
 Linkage assumption suggests that the output vectors in the previous stage will become the input vectors of the next stage.
-Assume linkage (k, h) denotes as the linkage from stage k to h.
+Assume linkage $(k, h)$ denotes as the linkage from stage k to h.
 In the model, there are 3 stages and 2 linkages.
 
-Therefore, we could denote the linkage (k, h) as following:  
-(1, 2): the linkage between suppliers and manufacturing  
-(2, 3): the linkage between manufacturing and customers.
+Therefore, we could denote the linkage $(k, h)$ as following:  
+$(1, 2)$: the linkage between suppliers and manufacturing  
+$(2, 3)$: the linkage between manufacturing and customers.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p11.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p11.png?raw=true)
 
 ### NDEA Model [lambda]
 Below shows the mathematics expressions of NDEA model,  
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
-sk- and sk+ represent the input and output slack variables, respectively.
+$s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
 
-Equation (1) shows the objective function, which is composed of all stage efficiencies with wk , the relative weight of Stage k, multiplies by 1- input vector x.  
+Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1- input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
 Equation (3) shows the output vectors multiply decision variables lambda and add slack variables.  
-Equation (4) shows the relative weight, w for each stage. Here, we assume each stage has equal weight, w = 1/3.  
-Equation (5) shows the Linkages Assumptions, there are 2 (k, h) pairs: (1,2) & (2,3).  
-Equation (6) shows the decision variable: lambda, sk+, sk-, weighted value.  
+Equation (4) shows the relative weight, $w$ for each stage. Here, we assume each stage has equal weight, $w = \frac{1}{3}$.  
+Equation (5) shows the Linkages Assumptions, there are 2 $(k, h)$ pairs: (1,2) & (2,3).  
+Equation (6) shows the decision variable: $\lambda, s^k_+, s^k_-$, weighted value.  
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p12.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p12.png?raw=true)
 
 ## Performance Evaluation
 We modifies their NDEA model from VRS-based to CRS-based and are attempting to compare it with classical DEA (VRS and CRS) models to evaluate our modifications. In sum, there are 4 models to compare:
@@ -102,14 +102,14 @@ We construct the NDEA model with CRS-based and VRS-based.
 The equation is exactly the same as the NDEA model part. 
 The only difference between CRS ans VRS is that the sum of weights equals to 1.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p16.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p16.png?raw=true)
 
 
 ### Dual DEA: CRS / VRS model
 We construct a Dual DEA with CRS-based and VRS-based.
 The only difference between CRS ans VRS is that the sum of weights equals to 1.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p17.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p17.png?raw=true)
 
 
 ### Scenario Analysis
@@ -138,7 +138,7 @@ We compare the above 4 models with 3 scenarios and have these finding:
 
 In 3 scenarios, when the efficiency score is relatively low, the DEA score is lower than the NDEA score, and the one employing VRS tends to achieve a higher efficiency score. Conversely, when the efficiency score is relatively high, the DEA model attains a higher efficiency than the NDEA model, with a score of 1, indicating a larger fluctuation in DEA. Additionally, consistency is evident in the observation that DEA's lower efficiency score becomes even lower than that of NDEA, while the higher score becomes higher than that of NDEA.
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p19.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p19.png?raw=true)
 
 
 ### Performance Analysis summary
@@ -146,7 +146,7 @@ There is no discrimitive power in DEA, as almost all DMUs score 1.
 On the contrary, the proposed model, NDEA, can compare the value of score, with different value in each company.
 Moreover, a DMU that initially achieved a score of 1 in the benchmark model obtains an efficiency score less than 1 in the NDEA model, indicating that the benchmark model may have reached saturation too rapidly. 
 
-![image](https://github.com/clins210/ORA-NDEA/blob/main/ORA_p20.png?raw=true)
+![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p20.png?raw=true)
 
 
 
@@ -186,21 +186,12 @@ Firstly, we currently only incorporate one-dimensional data for each input and o
 3. Develop diverse efficiency evaluation metrics to compare various circumstances
 
 ## References
-[Evaluating the performance of supply chain risk mitigation strategies using network data envelopment analysis](https://www.sciencedirect.com/science/article/pii/S0377221722002235) \
-[Incorporating causal modeling into data envelopment analysis for performance evaluation](https://link.springer.com/article/10.1007/s10479-023-05486-0) \
-[Innovation performance evaluation for high-tech companies using a dynamic network data envelopment analysis approach](https://www.sciencedirect.com/science/article/abs/pii/S0377221720308870)
+- [Evaluating the performance of supply chain risk mitigation strategies using network data envelopment analysis](https://www.sciencedirect.com/science/article/pii/S0377221722002235) \
+- [Incorporating causal modeling into data envelopment analysis for performance evaluation](https://link.springer.com/article/10.1007/s10479-023-05486-0) \
+- [Innovation performance evaluation for high-tech companies using a dynamic network data envelopment analysis approach](https://www.sciencedirect.com/science/article/abs/pii/S0377221720308870)
 
 
-<!-- 
-limitation/future work ?
--> input dimension
-how to improve?
-
-insight???
-論文與實務之間的關聯（思考問題 > 思考解法）
-high level -->
-
-### File structure
+### File structures
 ```
 ├── ORA-DEA
 │   ├── code
