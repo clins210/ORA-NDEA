@@ -77,7 +77,7 @@ $(2, 3)$: the linkage between manufacturing and customers.
 ### NDEA Model $\lambda$
 Below shows the mathematics expressions of NDEA model,  
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
-$s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
+$s_k^-$ and $s_k^+$ represent the input and output slack variables, respectively.
 
 Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
