@@ -9,9 +9,9 @@ Efficiency evaluation in supply chain management is crucial for assessing the co
 ## Background & Research Purpose
 
 ### Background Description
-In the realm of supply chain management, the evaluation of efficiency strategies is a critical pursuit to enhance overall performance. 
-However, the complexity of interconnected supply chain entities and multi-dimensional aspects challenges traditional efficiency assessment methods to capture intricate relationships and dependencies.
-Therefore, in this paper, we propose a method for evaluating company efficiency strategies that simultaneously includes performance outcomes, and interdependencies among the different stages of the supply chain. 
+In the realm of supply chain management, the evaluation of efficiency strategies is a critical pursuit to enhance overall performance.  
+However, the complexity of interconnected supply chain entities and multi-dimensional aspects challenges traditional efficiency assessment methods to capture intricate relationships and dependencies.  
+Therefore, in this paper, we propose a method for evaluating company efficiency strategies that simultaneously includes performance outcomes, and interdependencies among the different stages of the supply chain.  
 
 ### Research Purpose
 Evaluating supply chain efficiency strategies for each company, and consider each of the entities and their interdependencies.
@@ -27,7 +27,7 @@ Evaluating the Performance of Company Efficiency Using NDEA
 3. Interdependencies across different stages of the supply chain
 
 ### Decision-Making Units (DMU):
-Each company will receive an efficiency performance score ranging from 0 to 1.
+Each company will receive an efficiency performance score ranging from 0 to 1.  
 An efficiency score of 1 indicates that the company is highly efficient, while a score less than 1 represents relative inefficiency.
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p7.png?raw=true)
@@ -41,22 +41,22 @@ Our model is from the perspective of the manufacturers, who must manage efficien
 ### Method Justification 
 **Why using NDEA**
 
-Traditional DEA treats DMUs as black boxes, an assumption not applicable for the complexities of supply chain risk management.
-Also, NDEA efficiency is relative, allowing diverse efficiency paths, mirroring firms' unique efficiency strategies. 
+Traditional DEA treats DMUs as black boxes, an assumption not applicable for the complexities of supply chain risk management.  
+Also, NDEA efficiency is relative, allowing diverse efficiency paths, mirroring firms' unique efficiency strategies.  
 In addition, NDEA defines supply chains as interconnected activities, akin to industry-specific supply chain structures. 
 
 ### Model Formulation
 
 ### Desicion Variable: $\lambda$
 
-Assume there are $k$ stages and $n$ companies (DMUs).
-Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Suppliers, Manufacturing, Customers.
-We need to determine the **weight** assigned to each input and output vector (represent as lambda).
+Assume there are $k$ stages and $n$ companies (DMUs).  
+Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Suppliers, Manufacturing, Customers.  
+We need to determine the **weight** assigned to each input and output vector (represent as lambda).  
 With the input and output parameter $X, Y, Z$.
 
 $X1$ is the input vector of the suppliers, while $X2$ and $X$3 are the input vectors for the manufacturers and customers. 
 
-$Z1$ and $Z2$ are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by $Y1$. 
+$Z1$ and $Z2$ are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by $Y1$.  
 
 Our model is from the perspective of the **manufacturers**, who must manage risk internally and externally, both upstream and downstream. Therefore, we apply the centralized control model.
 
@@ -64,8 +64,8 @@ Our model is from the perspective of the **manufacturers**, who must manage risk
 
 
 ### Linkage Assumption
-Linkage assumption suggests that the output vectors in the previous stage will become the input vectors of the next stage.
-Assume linkage $(k, h)$ denotes as the linkage from stage $k$ to $h$.
+Linkage assumption suggests that the output vectors in the previous stage will become the input vectors of the next stage.  
+Assume linkage $(k, h)$ denotes as the linkage from stage $k$ to $h$.  
 In the model, there are 3 stages and 2 linkages.
 
 Therefore, we could denote the linkage $(k, h)$ as following:  
@@ -78,6 +78,18 @@ $(2, 3)$: the linkage between manufacturing and customers.
 Below shows the mathematics expressions of NDEA model,  
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
 $s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
+
+\[
+\begin{align*}
+    \min_{\lambda^k, s^{k-}} \quad & \sum_{k=1}^3 w^k [1 - \frac{1}{m_k}(\sum_{i=1}^m_{rk} \frac{s_i^{k-}}{x_{ir}^k})]\\
+     \text{s.t.} \quad & x_r^k = \sum_{j=1}^n x_j^k \lambda_j^k + s_r^{k-} \quad &\forall k\\
+      \quad & y_r^k = \sum_{j=1}^n y_j^k \lambda_j^k - s_r^{k+} \quad &\forall k\\
+      \quad &\sum_{j=1}^n e \lambda_j^k = 1 \quad &\forall k \\
+      \quad &\sum_{j=1}^n  w_j^k = 1 \quad &\forall k \\
+      \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n  z_j^{(k,h)} \lambda^k \quad &\forall (k, h)  \\
+      \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n   \lambda^k, s^{k-}, s^{k+}, w^k \leq 0 \quad  &\forall k \\
+\end{align*} 
+\]
 
 Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
@@ -98,15 +110,15 @@ Models:
 4. DEA VRS model
 
 ### NDEA CRS-based v.s. NDEA VRS-based model
-We construct the NDEA model with CRS-based and VRS-based.
-The equation is exactly the same as the NDEA model part. 
+We construct the NDEA model with CRS-based and VRS-based.  
+The equation is exactly the same as the NDEA model part.  
 The only difference between CRS ans VRS is that the sum of weights equals to 1.
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p16.png?raw=true)
 
 
 ### Dual DEA: CRS / VRS model
-We construct a Dual DEA with CRS-based and VRS-based.
+We construct a Dual DEA with CRS-based and VRS-based.  
 The only difference between CRS ans VRS is that the sum of weights equals to 1.
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p17.png?raw=true)
@@ -145,9 +157,8 @@ In 3 scenarios, when the efficiency score is relatively low, the DEA score is lo
 
 
 ### Performance Analysis summary
-There is no discrimitive power in DEA, as almost all DMUs score 1. <br>
-
-On the contrary, the proposed model, NDEA, can compare the value of score, with different value in each company. <br>
+There is no discrimitive power in DEA, as almost all DMUs score 1.  
+On the contrary, the proposed model, NDEA, can compare the value of score, with different value in each company.  
 Moreover, a DMU that initially achieved a score of 1 in the benchmark model obtains an efficiency score less than 1 in the NDEA model, indicating that the benchmark model may have reached saturation too rapidly. 
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p20.png?raw=true)
@@ -163,17 +174,24 @@ We implement 4 models, and compare the result respectively, and we find that:
 ## Contribution
 ### Academic Contributions:
 
-1. **Novel Evaluation Capability with NDEA:** The introduction of the NDEA model provides a novel and enhanced evaluation capability compared to traditional DEA. This innovation allows for the differentiation of efficiency scores, offering a more nuanced perspective on the performance of Decision Making Units (DMUs).
-2. **Quantitative Discrimination in Efficiency Scores:** NDEA's ability to compare efficiency scores quantitatively introduces a valuable metric for academics. This capability provides a more sophisticated analysis of the efficiency landscape, moving beyond the limited discrimination power observed in traditional DEA.
-3. **Revealing Benchmark Model Saturation:** The observation that a DMU initially scoring 1 in the benchmark DEA model obtains an efficiency score less than 1 in the NDEA model contributes to the understanding of benchmark model limitations. This insight highlights the potential for benchmark models to reach saturation prematurely and underscores the importance of adopting more advanced models.
-4. **Linkage Assumption in Multi-Stage Scenarios:** The acknowledgment that the linkage assumption in multi-stage scenarios better aligns with the reality of supply chain applications contributes to refining modeling assumptions. This insight provides a basis for future research to explore and validate the applicability of linkage assumptions in various supply chain contexts.
+1. **Novel Evaluation Capability with NDEA:**  
+The introduction of the NDEA model provides a novel and enhanced evaluation capability compared to traditional DEA. This innovation allows for the differentiation of efficiency scores, offering a more nuanced perspective on the performance of Decision Making Units (DMUs).
+2. **Quantitative Discrimination in Efficiency Scores:**  
+NDEA's ability to compare efficiency scores quantitatively introduces a valuable metric for academics. This capability provides a more sophisticated analysis of the efficiency landscape, moving beyond the limited discrimination power observed in traditional DEA.
+3. **Revealing Benchmark Model Saturation:**  
+The observation that a DMU initially scoring 1 in the benchmark DEA model obtains an efficiency score less than 1 in the NDEA model contributes to the understanding of benchmark model limitations. This insight highlights the potential for benchmark models to reach saturation prematurely and underscores the importance of adopting more advanced models.
+4. **Linkage Assumption in Multi-Stage Scenarios:**  
+The acknowledgment that the linkage assumption in multi-stage scenarios better aligns with the reality of supply chain applications contributes to refining modeling assumptions. This insight provides a basis for future research to explore and validate the applicability of linkage assumptions in various supply chain contexts.
 
 
 ### Practical Contributions:
 
-1. **Enhanced Decision-Making Support:** The practical contribution of the NDEA model lies in its ability to offer more granular insights into the efficiency of different companies. This enhanced decision-making support empowers practitioners to identify specific areas for improvement and optimization within their operations.
-2. **Efficiency Enhancement Strategy:** The NDEA model contributes practically by informing the development of more targeted strategies to enhance overall efficiency. With a nuanced understanding of efficiency variations, organizations can proactively identify areas for improvement in their operations and implement specific measures to optimize processes, ultimately enhancing overall efficiency.
-3. **Strategic Adoption of NDEA in Supply Chain Management:** The endorsement of NDEA as a preferable choice in multi-stage supply chain scenarios provides practical guidance for supply chain managers. This strategic adoption contributes to more accurate efficiency assessments in the dynamic and interconnected nature of modern supply chains.
+1. **Enhanced Decision-Making Support:**  
+The practical contribution of the NDEA model lies in its ability to offer more granular insights into the efficiency of different companies. This enhanced decision-making support empowers practitioners to identify specific areas for improvement and optimization within their operations.
+2. **Efficiency Enhancement Strategy:**  
+The NDEA model contributes practically by informing the development of more targeted strategies to enhance overall efficiency. With a nuanced understanding of efficiency variations, organizations can proactively identify areas for improvement in their operations and implement specific measures to optimize processes, ultimately enhancing overall efficiency.
+3. **Strategic Adoption of NDEA in Supply Chain Management:**  
+The endorsement of NDEA as a preferable choice in multi-stage supply chain scenarios provides practical guidance for supply chain managers. This strategic adoption contributes to more accurate efficiency assessments in the dynamic and interconnected nature of modern supply chains.
 
 
 
@@ -181,7 +199,7 @@ We implement 4 models, and compare the result respectively, and we find that:
 ## Limitation & Future Works
 
 ### Limitation
-Our model utilizes the NDEA model and demonstrates superior performance compared to traditional DEA models; however, there is room for improvement. 
+Our model utilizes the NDEA model and demonstrates superior performance compared to traditional DEA models; however, there is room for improvement.  
 Firstly, we currently only incorporate one-dimensional data for each input and output value. Considering multi-dimensional inputs and outputs would better reflect reality. Additionally, we solely rely on data generated from the survey in the original thesis. Conducting our own survey will ensure the accuracy of the data. Lastly, the efficiency scores from the NDEA and DEA models only indicate relative efficiency among different companies. To address this limitation, we may consider constructing different efficiency evaluation metrics to compare various circumstances. 
 
 ### Future Works 
