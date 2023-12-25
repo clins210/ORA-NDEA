@@ -125,7 +125,7 @@ We generate the input and output data according to the original paper survey.
 | Firm Age (years)                        | 66      | 1–179             |
 | Risk Management Program (years)         | 2       | 0–50              |
 | Firm Size (employees)                   | 7500    | 6–25000           |
-| **Output**                                  | **Median**      |** Range **           |
+| **Output**                              | **Median**  |**Range**           |
 | Sales ($)                               | 0.75 bn.    | 0.5 bn. to 10 bn.|
 
 
