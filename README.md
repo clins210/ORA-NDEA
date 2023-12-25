@@ -79,7 +79,7 @@ Below shows the mathematics expressions of NDEA model,
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
 $s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
 
-\[
+$$
 \begin{align*}
     \min_{\lambda^k, s^{k-}} \quad & \sum_{k=1}^3 w^k [1 - \frac{1}{m_k}(\sum_{i=1}^m_{rk} \frac{s_i^{k-}}{x_{ir}^k})]\\
      \text{s.t.} \quad & x_r^k = \sum_{j=1}^n x_j^k \lambda_j^k + s_r^{k-} \quad &\forall k\\
@@ -89,7 +89,7 @@ $s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively
       \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n  z_j^{(k,h)} \lambda^k \quad &\forall (k, h)  \\
       \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n   \lambda^k, s^{k-}, s^{k+}, w^k \leq 0 \quad  &\forall k \\
 \end{align*} 
-\]
+$$
 
 Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
