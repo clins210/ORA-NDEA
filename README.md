@@ -47,7 +47,7 @@ In addition, NDEA defines supply chains as interconnected activities, akin to in
 
 ### Model Formulation
 
-### Desicion Variable [$\lambda$]
+### Desicion Variable: $\lambda$
 
 Assume there are $k$ stages and $n$ companies (DMUs).
 Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Suppliers, Manufacturing, Customers.
@@ -65,7 +65,7 @@ Our model is from the perspective of the **manufacturers**, who must manage risk
 
 ### Linkage Assumption
 Linkage assumption suggests that the output vectors in the previous stage will become the input vectors of the next stage.
-Assume linkage $(k, h)$ denotes as the linkage from stage k to h.
+Assume linkage $(k, h)$ denotes as the linkage from stage $k$ to $h$.
 In the model, there are 3 stages and 2 linkages.
 
 Therefore, we could denote the linkage $(k, h)$ as following:  
@@ -79,12 +79,12 @@ Below shows the mathematics expressions of NDEA model,
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
 $s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
 
-Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1- input vector $x$.  
+Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
 Equation (3) shows the output vectors multiply decision variables lambda and add slack variables.  
 Equation (4) shows the relative weight, $w$ for each stage. Here, we assume each stage has equal weight, $w = \frac{1}{3}$.  
 Equation (5) shows the Linkages Assumptions, there are 2 $(k, h)$ pairs: (1,2) & (2,3).  
-Equation (6) shows the decision variable: $\lambda, s^k_+, s^k_-$, weighted value.  
+Equation (6) shows the decision variable: $\lambda, s_k^+, s_k^-$, weighted value.  
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p12.png?raw=true)
 
@@ -120,13 +120,16 @@ There are 3 types of inputs and outputs
 
 We generate the input and output data according to the original paper survey.
 
-There are 3 inputs:  
-input 1 : Firm Age (years) 				(Median = 66,		range = 1–179)  
-input 2 : Risk management program (years)  	(Median = 2, 		range = 0–50)  
-input 3 : Firm Size (employees)  			(Median = 5000–9999, 	range = 6–25000)  
+| Input                                   | Median  | Range             |
+|-----------------------------------------|---------|-------------------|
+| Firm Age (years)                        | 66      | 1–179             |
+| Risk Management Program (years)         | 2       | 0–50              |
+| Firm Size (employees)                   | 7500    | 6–25000           |
 
-There are 1 output:
-1 output: Sales ($) 					(Median = 0.5 bn. to 1 bn.,  range = 0.5 bn to 10 bn.)  
+| Output                                  | Median      | Range            |
+|-----------------------------------------|-------------|------------------|
+| Sales ($)                               | 0.75 bn.    | 0.5 bn. to 10 bn.|
+
 
 In sum, there are 3 scenarios, with each has different input and output data.
 
@@ -142,8 +145,9 @@ In 3 scenarios, when the efficiency score is relatively low, the DEA score is lo
 
 
 ### Performance Analysis summary
-There is no discrimitive power in DEA, as almost all DMUs score 1.
-On the contrary, the proposed model, NDEA, can compare the value of score, with different value in each company.
+There is no discrimitive power in DEA, as almost all DMUs score 1. <br>
+
+On the contrary, the proposed model, NDEA, can compare the value of score, with different value in each company. <br>
 Moreover, a DMU that initially achieved a score of 1 in the benchmark model obtains an efficiency score less than 1 in the NDEA model, indicating that the benchmark model may have reached saturation too rapidly. 
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p20.png?raw=true)
