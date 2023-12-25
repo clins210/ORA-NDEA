@@ -54,9 +54,9 @@ Given a $k = 3, n = 1$ scenario, consider a company $r$ , there are 3 stages: Su
 We need to determine the **weight** assigned to each input and output vector (represent as lambda).  
 With the input and output parameter $X, Y, Z$.
 
-$X1$ is the input vector of the suppliers, while $X2$ and $X$3 are the input vectors for the manufacturers and customers. 
+$X^1$ is the input vector of the suppliers, while $X^2$ and $X^3$ are the input vectors for the manufacturers and customers. 
 
-$Z1$ and $Z2$ are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by $Y1$.  
+$Z^1$ and $Z^2$ are the output vectors for both the supplier and the manufacturer, and are also the input vectors for the manufacturers and customers, making them the link variables. The final output vector from customers is represented by $Y^1$.  
 
 Our model is from the perspective of the **manufacturers**, who must manage risk internally and externally, both upstream and downstream. Therefore, we apply the centralized control model.
 
@@ -74,22 +74,10 @@ $(2, 3)$: the linkage between manufacturing and customers.
 
 ![image](https://github.com/clins210/ORA-NDEA/blob/main/figures/ORA_p11.png?raw=true)
 
-### NDEA Model [lambda]
+### NDEA Model $\lambda$
 Below shows the mathematics expressions of NDEA model,  
 where lambda is the only decision variable, representing the weight assigned to each input and output vector.  
 $s^k_-$ and $s^k_+$ represent the input and output slack variables, respectively.
-
-$$
-\begin{align*}
-    \min_{\lambda^k, s^{k-}} \quad & \sum_{k=1}^3 w^k [1 - \frac{1}{m_k}(\sum_{i=1}^m_{rk} \frac{s_i^{k-}}{x_{ir}^k})]\\
-     \text{s.t.} \quad & x_r^k = \sum_{j=1}^n x_j^k \lambda_j^k + s_r^{k-} \quad &\forall k\\
-      \quad & y_r^k = \sum_{j=1}^n y_j^k \lambda_j^k - s_r^{k+} \quad &\forall k\\
-      \quad &\sum_{j=1}^n e \lambda_j^k = 1 \quad &\forall k \\
-      \quad &\sum_{j=1}^n  w_j^k = 1 \quad &\forall k \\
-      \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n  z_j^{(k,h)} \lambda^k \quad &\forall (k, h)  \\
-      \quad &\sum_{j=1}^n  z_j^{(k,h)} \lambda^h = \sum_{j=1}^n   \lambda^k, s^{k-}, s^{k+}, w^k \leq 0 \quad  &\forall k \\
-\end{align*} 
-$$
 
 Equation (1) shows the objective function, which is composed of all stage efficiencies with $w_k$ , the relative weight of Stage $k$, multiplies by 1-input vector $x$.  
 Equation (2) shows the input vectors multiply decision variables lambda and add slack variables.  
