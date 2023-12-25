@@ -125,9 +125,7 @@ We generate the input and output data according to the original paper survey.
 | Firm Age (years)                        | 66      | 1–179             |
 | Risk Management Program (years)         | 2       | 0–50              |
 | Firm Size (employees)                   | 7500    | 6–25000           |
-
-| Output                                  | Median      | Range            |
-|-----------------------------------------|-------------|------------------|
+| **Output**                                  | **Median**      |** Range **           |
 | Sales ($)                               | 0.75 bn.    | 0.5 bn. to 10 bn.|
 
 
@@ -200,22 +198,5 @@ Firstly, we currently only incorporate one-dimensional data for each input and o
 - [Incorporating causal modeling into data envelopment analysis for performance evaluation](https://link.springer.com/article/10.1007/s10479-023-05486-0) \
 - [Innovation performance evaluation for high-tech companies using a dynamic network data envelopment analysis approach](https://www.sciencedirect.com/science/article/abs/pii/S0377221720308870)
 
-
-### File structures
-```
-├── ORA-DEA
-│   ├── code
-│   │   ├── core
-│   │   │   ├── data.py
-│   │   │   ├── model.py
-│   │   │   └── util.py
-│   │   ├── dataset
-│   │   │   ├── DD
-│   │   │   ├── DS
-│   │   │   └── SD
-│   │   ├── main.ipynb
-│   │   └── requriment.txt
-└── README.md
-```
 
 
